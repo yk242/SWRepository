@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.constant.AuthorityKind;
+import com.example.demo.constant.UserStatusKind;
 import com.example.demo.entity.Users;
 import com.example.demo.form.SignupForm;
 import com.example.demo.repository.UsersRepository;
@@ -44,7 +46,11 @@ public class SignupServiceImpl implements SignupService {
 		var users = mapper.map(form, Users.class);
 		var encodedPassword = passwordEncoder.encode(form.getPassword());
 		users.setPassword(encodedPassword);
-		users.setAuthority(AuthorityKind.ITEM_WATCHER);
+		users.setUserStatusKind(UserStatusKind.ENABLED);
+		users.setAuthorityKind(AuthorityKind.ITEM_WATCHER);
+		users.setCreateTime(LocalDateTime.now());
+		users.setUpdateTime(LocalDateTime.now());
+		users.setUpdateUser(form.getLoginId());
 		
 		return Optional.of(repository.save(users));
 	}

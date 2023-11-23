@@ -13,7 +13,9 @@
    		<svg class="bi flex-shrink-0 me-2" width="24" height="24">
 			<use xlink:href="#exclamation-triangle-fill"/>
 		</svg>
+		<div>
 	 		<span th:text="${errorMsg}"></span>
+	 	</div>
 	</div>
 	<form th:action="@{/login}" method="post" th:object="${loginForm}">
 		<div class="form-group">

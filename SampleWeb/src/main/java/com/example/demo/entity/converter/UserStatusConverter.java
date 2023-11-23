@@ -3,6 +3,7 @@ package com.example.demo.entity.converter;
 import com.example.demo.constant.UserStatusKind;
 
 import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 /**
  * ユーザー情報　ユーザー状態種別フィールドConverterクラス
@@ -10,6 +11,7 @@ import jakarta.persistence.AttributeConverter;
  * @author yk
  *
  */
+@Converter
 public class UserStatusConverter implements AttributeConverter<UserStatusKind, Boolean> {
 	
 	/**

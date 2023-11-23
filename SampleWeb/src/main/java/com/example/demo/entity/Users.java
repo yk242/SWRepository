@@ -47,11 +47,24 @@ public class Users {
 	/** ユーザー状態種別 */
 	@Column(name = "is_disabled")
 	@Convert(converter = UserStatusConverter.class)
-	private UserStatusKind status;
+	private UserStatusKind userStatusKind;
 	
 	/** ユーザー権限種別 */
+	@Column(name = "authority")
 	@Convert(converter = UserAuthorityConverter.class)
-	private AuthorityKind authority;
+	private AuthorityKind authorityKind;
+	
+	/** 登録日時 */
+	@Column(name= "create_time")
+	private LocalDateTime createTime;
+	
+	/** 最終更新日時 */
+	@Column(name= "update_time")
+	private LocalDateTime updateTime;	
+	
+	/** 最終更新ユーザー */
+	@Column(name= "update_user")
+	private String updateUser;	
 	
 	/**
 	 * デフォルトコンストラクタ
@@ -65,7 +78,8 @@ public class Users {
 	 * @return ログイン失敗回数がインクリメントされたUsers
 	 */
 	public Users incrementLoginFailureCount() {
-		return new Users(loginId, password, ++loginFailureCount, accountLockedTime, status, authority);
+		return new Users(loginId, password, ++loginFailureCount, accountLockedTime, userStatusKind, authorityKind, 
+				createTime, updateTime, updateUser);
 	}
 	
 	/**
@@ -74,7 +88,8 @@ public class Users {
 	 * @return ログイン失敗情報がリセットされたUsers
 	 */
 	public Users resetLoginFailureInfo() {
-		return new Users(loginId, password, 0, null, status, authority);
+		return new Users(loginId, password, 0, null, userStatusKind, authorityKind, createTime, updateTime,
+				updateUser);
 	}
 	
 	/**
@@ -83,7 +98,8 @@ public class Users {
 	 * @return ログイン失敗階位数、アカウントロック日時が更新されたUsers
 	 */
 	public Users updateAccountLocked() {
-		return new Users(loginId, password, 0, LocalDateTime.now(), status, authority);
+		return new Users(loginId, password, 0, LocalDateTime.now(), userStatusKind, authorityKind, createTime,
+				updateTime, updateUser);
 	}
 	
 	

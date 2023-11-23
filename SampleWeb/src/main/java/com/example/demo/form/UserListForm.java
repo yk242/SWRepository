@@ -25,5 +25,19 @@ public class UserListForm {
 	
 	/** ユーザー権限種別 */
 	private AuthorityKind authorityKind;
+	
+	/** ユーザー一覧情報から選択されたログインID */
+	private String selectedLoginId;
+	
+	/**
+	 * ユーザー一覧情報から選択されたログインIDをクリアする
+	 * 
+	 * @return ユーザー一覧情報から選択されたログインIDクリア後のインスタンス
+	 */
+	public UserListForm clearSelectedLoginId() {
+		this.selectedLoginId = null;
+		
+		return this;
+	}
 
 }

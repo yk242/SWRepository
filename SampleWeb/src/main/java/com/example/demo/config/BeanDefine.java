@@ -16,11 +16,21 @@ import com.github.dozermapper.core.Mapper;
 @Configuration
 public class BeanDefine {
 
+	/**
+	 * パスワードエンコーダーのBean定義
+	 * 
+	 * @return パスワードエンコーダー(BCrypt形式)
+	 */
 	@Bean
 	 PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
+	/**
+	 * マッピングフレームワークのBean定義
+	 * 
+	 * @return マッピングフレームワーク(Dozer)
+	 */
 	@Bean
 	Mapper mapper() {
 		return DozerBeanMapperBuilder.buildDefault();

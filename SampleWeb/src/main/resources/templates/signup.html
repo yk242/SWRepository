@@ -21,6 +21,7 @@
 			<div class="col-3 col-md-2 col-xxl-1">
 				<p><label for="loginId">ログインID:</label>
 				<input type="text" class="form-control" th:field="*{loginId}">	
+			</div>
 			<span class="text-danger" th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}"></span>
 			<div class="col-3 col-md-2 col-xxl-1">
 				<p><label for="password">パスワード:</label>
