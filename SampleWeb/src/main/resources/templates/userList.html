@@ -5,9 +5,9 @@
 <title>ユーザー一覧</title>
 </head>
 <body>
-<div th:insert="common/sourceList :: sourceList"></div>
-<div th:replace="common/header :: header"></div>
-<div th:replace="common/messageIcon :: messageIcon"></div>
+<div th:insert="~{common/sourceList :: sourceList}"></div>
+<div th:replace="~{common/header :: header}"></div>
+<div th:replace="~{common/messageIcon :: messageIcon}"></div>
 <script type="text/javascript" th:src="@{/js/userList.js}"></script>
 <div class="container-fluid">
 	<div class="alert d-flex align-items-center mt-3" th:classappend="|${isError ? 'alert-danger' : 'alert-primary'}|" role="alert" th:if="${message != null}">
@@ -91,7 +91,7 @@
 						</tbody>
 					</table>
 					<input type="text" th:field="*{selectedLoginId}" hidden>
-					<input type="submit" class="btn btn-secondary" id="updateBtn" name="update" value="更新" disabled>
+					<input type="submit" class="btn btn-secondary" id="editBtn" name="edit" value="編集" disabled>
 					<input type="button" class="btn btn-danger" id="deleteDummyBtn" data-bs-toggle="modal" data-bs-target="#deleteConfirm" value="削除" disabled>
 					<input type="submit" id="deleteBtn" name="delete" hidden>
 				</th:block>
@@ -125,5 +125,4 @@
 		</div>
 	</div>
 </div>
-</body>
 </html>

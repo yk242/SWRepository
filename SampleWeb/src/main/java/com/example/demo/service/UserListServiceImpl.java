@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.constant.ExecuteResult;
+import com.example.demo.constant.UserDeleteResult;
 import com.example.demo.dto.UserListInfo;
 import com.example.demo.dto.UserSearchInfo;
 import com.example.demo.entity.Users;
@@ -51,15 +51,15 @@ public class UserListServiceImpl implements UserListService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ExecuteResult deleteUsersById(String loginId) {
+	public UserDeleteResult deleteUsersById(String loginId) {
 		var users = repository.findById(loginId);
 		if(users.isEmpty()) {
-			return ExecuteResult.ERROR;
+			return UserDeleteResult.ERROR;
 		}
 		
 		repository.deleteById(loginId);
 		
-		return ExecuteResult.SUCCEED;
+		return UserDeleteResult.SUCCEED;
 	}
 	
 	/**

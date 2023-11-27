@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.example.demo.form;
 
 import com.example.demo.constant.db.AuthorityKind;
 import com.example.demo.constant.db.UserStatusKind;
@@ -6,16 +6,16 @@ import com.example.demo.constant.db.UserStatusKind;
 import lombok.Data;
 
 /**
- * ユーザー一覧画面検索用DTOクラス
+ * ユーザー編集画面Formクラス
  * 
  * @author yk
  *
  */
 @Data
-public class UserSearchInfo {
+public class UserEditForm {
 
-	/** ログインID */
-	private String loginId;
+	/** ログイン失敗状況をリセットするか(リセットするならtrue) */
+	private boolean resetsLoginFailure;
 	
 	/** アカウント状態種別 */
 	private UserStatusKind userStatusKind;

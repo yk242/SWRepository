@@ -11,13 +11,13 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum ExecuteResult {
+public enum UserDeleteResult {
 	
 	/* エラーなし */
-	SUCCEED(MsgConst.USERLIST_DELETE_SUCCEED),
+	SUCCEED(MessageConst.USERLIST_DELETE_SUCCEED),
 	
 	/* エラーあり */
-	ERROR(MsgConst.USERLIST_NON_EXISTED_LOGIN_ID);
+	ERROR(MessageConst.USERLIST_NON_EXISTED_LOGIN_ID);
 	
 	/** メッセージID */
 	private String messageId;

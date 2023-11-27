@@ -6,8 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.demo.constant.AuthorityKind;
 import com.example.demo.constant.UrlConst;
+import com.example.demo.constant.ViewNameConst;
+import com.example.demo.constant.db.AuthorityKind;
 
 /** メニュー画面 controller
  * 
@@ -29,7 +30,7 @@ public class MenuController {
 				.allMatch(authority -> authority.getAuthority()
 						.equals(AuthorityKind.ITEM_AND_USER_MANAGER.getCode()));
 		model.addAttribute("hasUserManageAuth", hasUserManageAuth);
-		return "menu";
+		return ViewNameConst.MENU;
 	}
 	
 

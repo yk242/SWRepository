@@ -31,4 +31,14 @@ public class AppUtil {
 	public static String addWildcard(String param) {
 		return "%" + param + "%";
 	}
+	
+	/**
+	 * リダイレクト先のURLを受け取って、リダイレクトURLを作成する
+	 * 
+	 * @param url リダイレクト先URL
+	 * @return リダイレクトのURL
+	 */
+	public static String doRedirect(String url) {
+		return "redirect:" + url;
+	}
 }

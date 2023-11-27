@@ -14,10 +14,10 @@ import lombok.Getter;
 public enum SignupMessage {
 	
 	/** 登録成功 */
-	SUCCEED(MsgConst.SIGNUP_RESIST_SUCCEED, false),
+	SUCCEED(MessageConst.SIGNUP_RESIST_SUCCEED, false),
 	
 	/** 既に登録されているログインID */
-	EXISTED_LOGIN_ID(MsgConst.SIGNUP_EXISTED_LOGIN_ID, true);
+	EXISTED_LOGIN_ID(MessageConst.SIGNUP_EXISTED_LOGIN_ID, true);
 	
 	/** メッセージID */
 	private String messageId;
